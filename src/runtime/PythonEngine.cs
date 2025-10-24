@@ -634,10 +634,8 @@ namespace Python.Runtime
                 globals = Runtime.PyEval_GetGlobals();
                 if (globals.IsNull)
                 {
-                    tempGlobals = Runtime.PyDict_New();
-                    globals = tempGlobals.BorrowOrThrow();
                     Runtime.PyDict_SetItem(
-                        globals, PyIdentifier.__builtins__,
+                        Runtime.PyDict_New().BorrowOrThrow(), PyIdentifier.__builtins__,
                         Runtime.PyEval_GetBuiltins()
                     );
                 }

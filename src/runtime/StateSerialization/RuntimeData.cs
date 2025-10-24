@@ -13,10 +13,13 @@ using static Python.Runtime.Runtime;
 
 namespace Python.Runtime
 {
+    #pragma warning disable SYSLIB0011 // Type or member is obsolete
     public static class RuntimeData
     {
 
+        
         public readonly static Func<IFormatter> DefaultFormatterFactory = () =>
+
         {
             try
             {
@@ -385,4 +388,5 @@ namespace Python.Runtime
             return FormatterFactory();
         }
     }
+    #pragma warning restore SYSLIB0011 // Type or member is obsolete
 }
